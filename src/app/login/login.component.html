@@ -1,0 +1,21 @@
+<div class="form-holder">
+  <div class="form-content">
+    <div class="form-items">
+      <h3>User Login</h3>
+      <form #LoginForm="ngForm" (ngSubmit)=
+      "login.loginuser(LoginForm.value.email,LoginForm.value.password)">
+        <p>
+          <label for="email">Email</label>
+          <input type="text" name="email" required email ngModel />
+        </p>
+        <p>
+          <label for="password">Password </label>
+          <input type="password" id="password" name="password" ngModel />
+        </p>
+        <p>
+          <button type="submit" [disabled]="!LoginForm.valid">Submit</button>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
