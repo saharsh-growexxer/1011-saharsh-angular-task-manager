@@ -1,7 +1,65 @@
 <app-header></app-header>
-<h1 style="text-align: center; color: black; padding-top: 300px">
 
-  Welcome Dashboard
-  
-  </h1>
+<div class="panel panel-primary float-none">
+  <div class="panel-heading p-3 text-center">
+    <div class="row">
+      <div class="col-md-4 add-new-task p-3">
+        <a class="btn btn-dark" [routerLink]="['/tasks/create']"
+          >Add New Task</a
+        >
+      </div>
+      <div class="col-md-4 p-3">
+        <h3 class="panel-title">Tasks List</h3>
+      </div>
+      <div class="col-md-4 p-3"></div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12 col-lg-12">
+        <table class="table table-bordered table-hover table-light text-center">
+          <thead>
+            <tr>
+              <th>Index</th>
+              <th>Description</th>
+              <th>Status</th>
+              <th>Create Time</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="taskService?.tasks?.length > 0">
+            <tr *ngFor="let task of taskService?.tasks; let i = index" appCustomdirective>
+              <td>{{ i + 1 }}</td>
+              <td>{{ task?.description }}</td>
+              <td>{{ task?.completed ? "Completed" : "Pending" }}</td>
+              <td>{{ task?.createdAt | date }}</td>
+
+              <td>
+                <a
+                  class="btn btn-warning"
+                  [routerLink]="['/tasks/edit', task._id]"
+                  >Edit</a
+                >
+              </td>
+              <td>
+                <a class="btn btn-danger" (click)="deleteTask(task._id)"
+                  >Delete</a
+                >
+              </td>
+            </tr>
+          </tbody>
+          <tbody *ngIf="taskService?.tasks?.length <= 0">
+            <tr>
+              <td colspan="7" class="text-center">
+                <strong>No tasks found</strong>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
 <app-footer></app-footer>

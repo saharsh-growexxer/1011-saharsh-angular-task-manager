@@ -1,0 +1,75 @@
+<app-header></app-header>
+<div class="panel panel-primary bg-light float-none">
+  <div class="panel-heading p-3 text-center">
+    <h3 class="panel-title text-uppercase">Edit Profile</h3>
+  </div>
+  <div class="panel-body">
+    <form (ngSubmit)="onEditProfile()" [formGroup]="editProfileForm">
+      <div class="row">
+        <div  class="col-md-3 col-lg-3 form-group" align="center">
+          <img
+            alt="User Pic"
+            src="./assets/images/saharsh.jpg"
+            class="img-circle img-responsive rounded"
+            style="width: 200px; height:200px"
+          />
+        </div>
+        <div class="col-md-9 col-lg-9">
+          <table class="table table-user-information">
+            <tbody>
+              <tr>
+                <td><strong>Id</strong></td>
+                <td>{{  login?.userInformation?.__v }}</td>
+              </tr>
+              <tr>
+                <td><strong>Name</strong></td>
+                <td>
+                  <input
+                    id="name"
+                    type="text"
+                    class="rounded form-control"
+                    value="{{login?.userInformation?.name}}"
+                    formControlName="name"
+                    required
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Email</strong></td>
+                <td>{{ login?.userInformation?.email }}</td>
+              </tr>
+              <tr>
+                <td><strong>Age</strong></td>
+                <td>
+                  <input
+                    id="age"
+                    type="text"
+                    class="rounded form-control"
+                    value="{{login?.userInformation?.age}}"
+                    formControlName="age"
+                    required
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Last Updated At</strong></td>
+                <td>{{ login?.userInformation?.updatedAt}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-12 text-center">
+          <button
+            type="submit"
+            class="btn btn-dark w-25 mt-4 mx-2"
+            [disabled]="!editProfileForm.valid"
+            (click)="onEditProfile()"
+          >
+            Update Profile
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

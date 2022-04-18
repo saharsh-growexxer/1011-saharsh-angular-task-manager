@@ -23,11 +23,7 @@
       margin: 10px;
       padding: 10px;
       font-size: 20px;
-
-      .a{
-        font-weight: bold;
-        color: #ffffff;
-      }
+      color: #ffffff;
       .primary-heading {
         font-weight: bold;
         color: #ffffff;
@@ -55,4 +51,26 @@
       border: 2px solid #18181a;
     }
   }
+}
+
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+  font-size: 30px;
+}
+a:visited {
+  color: rgb(255, 255, 255);
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
 }

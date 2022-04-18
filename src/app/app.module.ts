@@ -9,9 +9,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import {HttpClientModule} from '@angular/common/http';
-import { ProfileComponent } from './profile/profile.component';
 import { HelpComponent } from './help/help.component';
 import { AboutComponent } from './about/about.component';
+import {ProfileComponent} from './profile/profile.component';
+import { TaskComponent } from './task/task.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EditprofileComponent } from './user/editprofile/editprofile.component';
+import { CreateTaskComponent } from './create-task/create-task.component';
+import { EditTaskComponent } from './edit-task/edit-task.component';
+import { CustomdirectiveDirective } from './core/directives/customdirective.directive';
 
 @NgModule({
   declarations: [
@@ -21,16 +27,22 @@ import { AboutComponent } from './about/about.component';
     DashboardComponent,
     HeaderComponent,
     FooterComponent,
-    ProfileComponent,
     HelpComponent,
-    AboutComponent
+    AboutComponent,
+    ProfileComponent,
+    TaskComponent,
+    EditprofileComponent,
+    CreateTaskComponent,
+    EditTaskComponent,
+    CustomdirectiveDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

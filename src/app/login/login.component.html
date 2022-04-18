@@ -5,7 +5,7 @@
       <form #LoginForm="ngForm" (ngSubmit)=
       "login.loginuser(LoginForm.value.email,LoginForm.value.password)">
         <p>
-          <label for="email">Email</label>
+          <label for="email">Email</label><br>
           <input type="text" name="email" required email ngModel />
         </p>
         <p>
@@ -14,6 +14,9 @@
         </p>
         <p>
           <button type="submit" [disabled]="!LoginForm.valid">Submit</button>
+        </p>
+        <p> Not a user?
+          <a routerLink="/register">Register here</a>
         </p>
       </form>
     </div>

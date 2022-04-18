@@ -1,0 +1,105 @@
+<app-header></app-header>
+<div class="panel panel-primary float-none">
+  <div class="panel-heading p-3 text-center">
+    <h3 class="panel-title">Add New Task</h3>
+  </div>
+  <div class="panel-body">
+    <form [formGroup]="createTaskForm" class="edit_profile_form">
+      <div class="row">
+        <div class="col-md-1 col-lg-1"></div>
+        <div class="col-md-10 col-lg-10">
+          <table class="table table-user-information">
+            <tbody>
+              <tr>
+                <td><strong>Description</strong></td>
+                <td>
+                  <textarea
+                    id="description"
+                    type="text"
+                    class="rounded form-control"
+                    formControlName="description"
+                    required
+                  ></textarea>
+                  <div
+                    *ngIf="
+                      createTaskForm.get('description')?.invalid &&
+                      createTaskForm.get('description')?.errors &&
+                      (createTaskForm.get('description')?.dirty ||
+                        createTaskForm.get('description')?.touched)
+                    "
+                  >
+                    <small
+                      class="text-danger"
+                      *ngIf="
+                        createTaskForm.get('description')?.hasError('required')
+                      "
+                    >
+                      This field is required.
+                    </small>
+                    <small
+                      class="text-danger"
+                      *ngIf="
+                        createTaskForm.get('description')?.hasError('minlength')
+                      "
+                    >
+                      The minimum length for this field is
+                      {{createTaskForm.get('description')?.errors?.['minlength'].requiredLength}}
+                      characters.
+                    </small>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Status</strong></td>
+                <td>
+                  <select
+                    id="status"
+                    type="text"
+                    class="rounded form-control"
+                    formControlName="status"
+                    required
+                  >
+                    <option value="">Choose Status</option>
+                    <option
+                      *ngFor="let item of taskStatus"
+                      [ngValue]="item.value"
+                    >
+                      {{ item.key }}
+                    </option>
+                  </select>
+                  <div
+                    *ngIf="
+                      createTaskForm.get('status')?.invalid &&
+                      createTaskForm.get('status')?.errors &&
+                      (createTaskForm.get('status')?.dirty ||
+                        createTaskForm.get('status')?.touched)
+                    "
+                  >
+                    <small
+                      class="text-danger"
+                      *ngIf="createTaskForm.get('status')?.hasError('required')"
+                    >
+                      This field is required.
+                    </small>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-1 col-lg-1"></div>
+        <div class="col-md-12 text-center">
+          <button
+            type="submit"
+            class="btn btn-warning w-25 mt-4 mx-2"
+            [disabled]="!createTaskForm.valid"
+            (click)="onCreateTask()"
+          >
+            Create Task
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -1,7 +1,58 @@
 <app-header></app-header>
-<h1 style="text-align: center; color: black; padding-top: 300px">
 
-  Welcome Profile
-  
-  </h1>
+<div class="panel panel-primary bg-light float-none">
+  <div class="panel-heading p-3 text-center">
+    <h3 class="panel-title text-uppercase">Profile</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-3 col-lg-3" align="center">
+        <img
+          alt="User Pic"
+          src="./assets/images/saharsh.jpg"
+          class="img-circle img-responsive rounded"
+          style="width: 200px; height: 200px"
+        />
+      </div>
+      <div class="col-md-9 col-lg-9">
+        <table class="table table-user-information">
+          <tbody>
+            <tr>
+              <td><strong>Id</strong></td>
+              <td>{{ login?.userInformation?.__v }}</td>
+            </tr>
+            <tr>
+              <td><strong>Name</strong></td>
+              <td>{{ login?.userInformation?.name | uppercase }}</td>
+            </tr>
+            <tr>
+              <td><strong>Email</strong></td>
+              <td>{{ login?.userInformation?.email }}</td>
+            </tr>
+            <tr>
+              <td><strong>Age</strong></td>
+              <td>{{ login?.userInformation?.age }}</td>
+            </tr>
+            <tr>
+              <td><strong>Created At</strong></td>
+              <td>{{ login?.userInformation?.createdAt | date }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-12 text-center">
+        <a
+          class="btn btn-dark w-25 mt-4 mx-2"
+          [routerLink]="['/profile/edit', login.userInformation?.__v]"
+        >
+          Edit Profile
+        </a>
+        <a class="btn btn-danger w-25 mt-4" (click)="userService.deleteUser()">
+          Delete my account
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <app-footer></app-footer>

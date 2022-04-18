@@ -1,0 +1,29 @@
+.user-row {
+  margin-bottom: 14px;
+}
+
+.table-user-information > tbody > tr > td {
+  border:none;
+  padding-top: 20px;
+}
+
+.table-user-information > tbody > tr:first-child {
+  border-top: 0;
+}
+
+.table-user-information > tbody > tr > td {
+  border-top: 0;
+}
+
+.panel {
+  color: darkslategray;
+  border-radius: 0.3rem;
+  padding: 2%;
+  border: 1px solid #d6d6d6;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  margin-top: 5%;
+  width: 75%;
+}
+
+

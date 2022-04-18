@@ -3,34 +3,25 @@
     <div class="form-items">
       <h3>User Registeration</h3>
 
-      <form class="form-basic" [formGroup]="RegisterForm" (ngSubmit)="Registeronsubmit()">
+      <form
+        class="form-basic"
+        [formGroup]="RegisterForm"
+        (ngSubmit)="Registeronsubmit()"
+      >
         <p>
-          <label for="name">Name <br><br></label>
+          <label for="name">Name <br /><br /></label><br />
           <input type="text" id="name" name="name" formControlName="name" />
         </p>
         <p>
-          <label for="age">Age <br><br></label>
+          <label for="age">Age <br /><br /></label><br />
           <input type="number" id="age" name="age" formControlName="age" />
         </p>
         <p>
-          <label for="email">Email <br><br></label>
+          <label for="email">Email <br /><br /></label><br />
           <input type="text" id="email" name="email" formControlName="email" />
         </p>
-        <!-- <div
-          class="form-control-feedback"
-          *ngIf="email?.errors && (email?.dirty || email?.touched)"
-        > -->
-          <!-- <p *ngIf="email?.errors?.['required']">Email is required</p>
-          <p *ngIf="email?.errors?.['pattern']">
-            The email address must contain at least the @ character
-          </p> -->
-          <!-- <p *ngIf="email?.errors?.['emailDomain']">
-            Email must be on the gmail.com domain
-          </p> -->
-        <!-- </div>  -->
-
         <p>
-          <label for="password">Password <br><br></label>
+          <label for="password">Password <br /><br /></label><br />
           <input
             type="password"
             id="password"
@@ -39,14 +30,14 @@
           />
         </p>
         <p>
-          <label for="confirmpassword">Confirm Password <br><br></label>
+          <label for="confirmpassword">Confirm Password <br /><br /></label
+          ><br />
           <input
             type="password"
             id="confirmpassword"
             name="confirmpassword"
             formControlName="confirmpassword"
           />
-          
         </p>
         <div *ngIf="(RegisterForm?.errors?.['misMatch'])"></div>
         <p>
@@ -58,6 +49,10 @@
           >
             Submit
           </button>
+        </p>
+        <p>
+          Already a user?
+          <a routerLink="/login">Login here</a>
         </p>
       </form>
     </div>
